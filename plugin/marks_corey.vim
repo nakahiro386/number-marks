@@ -405,37 +405,39 @@ endfun
 
 
 " ---------------------------------------------------------------------
-if !hasmapto('<Plug>Place_sign')
-  map <unique> <c-F2> <Plug>Place_sign
-  map <silent> <unique> mm <Plug>Place_sign
-endif
 nnoremap <silent> <script> <Plug>Place_sign :call Place_sign()<cr>
-
-if !hasmapto('<Plug>Goto_next_sign') 
-  map <unique> <F2> <Plug>Goto_next_sign
-  map <silent> <unique> mb <Plug>Goto_next_sign
-endif
 nnoremap <silent> <script> <Plug>Goto_next_sign :call Goto_next_sign()<cr>
-
-if !hasmapto('<Plug>Goto_prev_sign') 
-  map <unique> <s-F2> <Plug>Goto_prev_sign
-  map <silent> <unique> mv <Plug>Goto_prev_sign
-endif
 nnoremap <silent> <script> <Plug>Goto_prev_sign :call Goto_prev_sign()<cr>
-
-if !hasmapto('<Plug>Remove_all_signs') 
-  map <unique> <F4> <Plug>Remove_all_signs
-endif
 nnoremap <silent> <script> <Plug>Remove_all_signs :call Remove_all_signs()<cr>
-
-if !hasmapto('<Plug>Move_sign') 
-  map <silent> <unique> m. <Plug>Move_sign
-endif
 nnoremap <silent> <script> <Plug>Move_sign :call Move_sign()<cr>
 
+if !get(g:, 'number_marks_no_default_key_mappings', 0)
+  if !hasmapto('<Plug>Place_sign')
+    map <unique> <c-F2> <Plug>Place_sign
+    map <silent> <unique> mm <Plug>Place_sign
+  endif
 
-noremap <F6> :call SaveP()<cr>
-noremap <F5> :call ReloadP()<cr>
+  if !hasmapto('<Plug>Goto_next_sign') 
+    map <unique> <F2> <Plug>Goto_next_sign
+    map <silent> <unique> mb <Plug>Goto_next_sign
+  endif
+
+  if !hasmapto('<Plug>Goto_prev_sign') 
+    map <unique> <s-F2> <Plug>Goto_prev_sign
+    map <silent> <unique> mv <Plug>Goto_prev_sign
+  endif
+
+  if !hasmapto('<Plug>Remove_all_signs') 
+    map <unique> <F4> <Plug>Remove_all_signs
+  endif
+
+  if !hasmapto('<Plug>Move_sign') 
+    map <silent> <unique> m. <Plug>Move_sign
+  endif
+
+  noremap <F6> :call SaveP()<cr>
+  noremap <F5> :call ReloadP()<cr>
+endif
 
 " ---------------------------------------------------------------------
 
